@@ -1,0 +1,65 @@
+diff --git a/Cargo.toml b/Cargo.toml
+index 923075c..7591e16 100644
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -8,7 +8,7 @@ edition = "2021"
+ license = "BSD-2-Clause"
+ categories = ["concurrency", "os", "no-std"]
+ 
+-[target.'cfg(any(target_os = "linux", target_os = "android", target_os = "freebsd"))'.dependencies]
++[target.'cfg(any(target_os = "linux", target_os = "android", target_os = "freebsd", target_os = "emscripten"))'.dependencies]
+ libc = "0.2"
+ 
+ [target.'cfg(windows)'.dependencies]
+diff --git a/src/emscripten.rs b/src/emscripten.rs
+new file mode 100644
+index 0000000..34355f6
+--- /dev/null
++++ b/src/emscripten.rs
+@@ -0,0 +1,31 @@
++use core::sync::atomic::AtomicU32;
++
++unsafe extern "C" {
++    fn emscripten_futex_wake(addr: *const AtomicU32, count: libc::c_int) -> libc::c_int;
++    fn emscripten_futex_wait(
++        addr: *const AtomicU32,
++        val: libc::c_uint,
++        max_wait_ms: libc::c_double,
++    ) -> libc::c_int;
++}
++
++#[inline]
++pub fn wait(a: &AtomicU32, expected: u32) {
++    unsafe {
++        emscripten_futex_wait(a, expected, f64::INFINITY);
++    };
++}
++
++#[inline]
++pub fn wake_one(ptr: *const AtomicU32) {
++    unsafe {
++        emscripten_futex_wake(ptr, 1i32);
++    };
++}
++
++#[inline]
++pub fn wake_all(ptr: *const AtomicU32) {
++    unsafe {
++        emscripten_futex_wake(ptr, i32::MAX);
++    };
++}
+diff --git a/src/lib.rs b/src/lib.rs
+index 51507d3..614cde6 100644
+--- a/src/lib.rs
++++ b/src/lib.rs
+@@ -19,6 +19,10 @@ mod platform;
+ #[path = "freebsd.rs"]
+ mod platform;
+ 
++#[cfg(target_os = "emscripten")]
++#[path = "emscripten.rs"]
++mod platform;
++
+ /// If the value is `value`, wait until woken up.
+ ///
+ /// This function might also return spuriously,
