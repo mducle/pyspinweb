@@ -1,0 +1,80 @@
+{
+  "pycifrw": {
+    "releases": {
+      "5.0.1": [
+        {
+          "comment_text": "",
+          "digests": {
+            "md5": "ca01d24ab050faf7e30031d42527138f",
+            "sha256": "49686fa5bd13374375d39bded4557638b24119a210f2e3541165e9c94971bd40"
+          },
+          "downloads": -1,
+          "filename": "pycifrw-5.0.1-cp314-cp314-pyemscripten_2026_0_wasm32.whl",
+          "has_sig": false,
+          "md5_digest": "ca01d24ab050faf7e30031d42527138f",
+          "packagetype": "bdist_wheel",
+          "python_version": "py3",
+          "requires_python": null,
+          "size": 159157,
+          "upload_time": "2026-09-01T15:58:32Z",
+          "upload_time_iso_8601": "2026-09-01T15:58:32Z",
+          "url": "./pycifrw-5.0.1-cp314-cp314-pyemscripten_2026_0_wasm32.whl",
+          "yanked": false,
+          "yanked_reason": null
+        }
+      ]
+    }
+  },
+  "pyspinw": {
+    "releases": {
+      "1.0.0a2": [
+        {
+          "comment_text": "",
+          "digests": {
+            "md5": "b92b0b7333edfadcb61bdafd79438cbc",
+            "sha256": "f90683710cb886afff05f7964ceba9a8c9580efb99b10e86ae9b75268e390f75"
+          },
+          "downloads": -1,
+          "filename": "pyspinw-1.0.0a2-cp314-cp314-pyemscripten_2026_0_wasm32.whl",
+          "has_sig": false,
+          "md5_digest": "b92b0b7333edfadcb61bdafd79438cbc",
+          "packagetype": "bdist_wheel",
+          "python_version": "py3",
+          "requires_python": ">=3.10",
+          "size": 634213,
+          "upload_time": "2026-09-01T15:58:14Z",
+          "upload_time_iso_8601": "2026-09-01T15:58:14Z",
+          "url": "./pyspinw-1.0.0a2-cp314-cp314-pyemscripten_2026_0_wasm32.whl",
+          "yanked": false,
+          "yanked_reason": null
+        }
+      ]
+    }
+  },
+  "spglib": {
+    "releases": {
+      "2.7.1.dev2+ga6b561fb6.d20260901": [
+        {
+          "comment_text": "",
+          "digests": {
+            "md5": "623b62529a9587557e3c93db3f3a696a",
+            "sha256": "c09bf96c5950f79dbb7fbd3fec030d6a0ad1eb45458f9b90f2d498d140fbbe95"
+          },
+          "downloads": -1,
+          "filename": "spglib-2.7.1.dev2+ga6b561fb6.d20260901-cp314-cp314-pyemscripten_2026_0_wasm32.whl",
+          "has_sig": false,
+          "md5_digest": "623b62529a9587557e3c93db3f3a696a",
+          "packagetype": "bdist_wheel",
+          "python_version": "py3",
+          "requires_python": ">=3.9",
+          "size": 574246,
+          "upload_time": "2026-09-01T15:58:24Z",
+          "upload_time_iso_8601": "2026-09-01T15:58:24Z",
+          "url": "./spglib-2.7.1.dev2+ga6b561fb6.d20260901-cp314-cp314-pyemscripten_2026_0_wasm32.whl",
+          "yanked": false,
+          "yanked_reason": null
+        }
+      ]
+    }
+  }
+}
