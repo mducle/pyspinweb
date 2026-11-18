@@ -1,0 +1,12 @@
+{
+  "PyodideLockAddon": {
+    "enabled": true,
+    "specs": [
+      "ipywebgl==0.4.0",
+      "ipytree==0.2.2"
+    ],
+    "constraints": [],
+    "excludes": [],
+    "wheels": []
+  }
+}
