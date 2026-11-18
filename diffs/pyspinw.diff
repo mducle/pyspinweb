@@ -1,5 +1,22 @@
+diff --git a/pyproject.toml b/pyproject.toml
+index 6902b7a..d311e88 100644
+--- a/pyproject.toml
++++ b/pyproject.toml
+@@ -29,10 +29,9 @@ dependencies = [
+     "pycifrw",
+     "spglib>=2.7.0",
+     "scipy",
+-    "pyopengl>=3.1.10",
+-    "PySide6-Essentials",
+     "matplotlib>=3.10.5",
+-    "imageio",
++    "ipywebgl",
++    "ipytree",
+ ]
+ 
+ [tool.maturin]
 diff --git a/Cargo.toml b/Cargo.toml
-index 96173ad..b2f510f 100644
+index 3bf33d1..7a486c7 100644
 --- a/Cargo.toml
 +++ b/Cargo.toml
 @@ -17,3 +17,6 @@ faer-ext = {version="0.7.1", features=["numpy", "ndarray"]}
@@ -9,86 +26,3 @@ index 96173ad..b2f510f 100644
 +
 +[patch.crates-io]
 +atomic-wait = { path = 'atomic-wait' }
-diff --git a/pyproject.toml b/pyproject.toml
-index 556c36f..250a4a8 100644
---- a/pyproject.toml
-+++ b/pyproject.toml
-@@ -1,5 +1,5 @@
- [project]
--name = "spinw-python"
-+name = "pyspinw"
- requires-python = ">=3.10"
- dynamic = ["version"]
- readme = "README.md"
-@@ -30,10 +30,10 @@ dependencies = [
-     "pycifrw",
-     "spglib>2.1.0",
-     "scipy",
--    "pyopengl>=3.1.10",
--    "PySide6-Essentials",
-+#   "pyopengl>=3.1.10",
-+#   "PySide6-Essentials",
-     "matplotlib>=3.10.5",
--    "imageio",
-+#   "imageio",
- ]
- 
- [tool.maturin]
-diff --git a/pyspinw/__init__.py b/pyspinw/__init__.py
-index 3d7d11c..ee06920 100644
---- a/pyspinw/__init__.py
-+++ b/pyspinw/__init__.py
-@@ -28,17 +28,11 @@ from pyspinw.path import Path, Path1D, Slice
- from pyspinw.windows_parallelisation import set_up_windows_python_parallelisation
- 
- from pyspinw.calculations.spherical_integration import SphericalPointGeneratorType
--from pyspinw.gui.viewer import show_object as view
--from pyspinw.gui.viewer import snapshot
--from pyspinw.gui.displayoptions import DisplayOptions
- 
- from pyspinw.units import CoordsUnits, IntensityUnits
- 
- from pyspinw.cif import load_cif
- 
--from pyspinw.demo import demo_viewer, demo_chains
--from pyspinw.demo import run_demos as demos
--
- # TODO, add viewer and fitting things
- 
- __all__ = [
-@@ -118,14 +112,25 @@ __all__ = [
- 
-     # windows parallelisation
-     "set_up_windows_python_parallelisation",
--
--    # viewer
--    "view",
--    "snapshot",
--    "DisplayOptions",
--
--    # demo
--    "demos",
--    "demo_viewer",
--    "demo_chains",
- ]
-+
-+try:
-+    from pyspinw.gui.viewer import show_object as view
-+    from pyspinw.gui.viewer import snapshot
-+    from pyspinw.gui.displayoptions import DisplayOptions
-+    from pyspinw.demo import demo_viewer, demo_chains
-+    from pyspinw.demo import run_demos as demos
-+except ModuleNotFoundError:
-+    pass
-+else:
-+    __all__ += [
-+        # viewer
-+        "view",
-+        "snapshot",
-+        "DisplayOptions",
-+
-+        # demo
-+        "demos",
-+        "demo_viewer",
-+        "demo_chains",
-+    ]
