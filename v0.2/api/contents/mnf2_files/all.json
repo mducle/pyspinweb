@@ -1,0 +1,29 @@
+{
+  "content": [
+    {
+      "content": null,
+      "created": "2026-11-18T16:13:52.498321Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-11-18T15:37:44.947007Z",
+      "mimetype": null,
+      "name": "exchange.out",
+      "path": "mnf2_files/exchange.out",
+      "size": 127136,
+      "type": "file",
+      "writable": true
+    }
+  ],
+  "created": "2026-11-18T16:13:52.497321Z",
+  "format": "json",
+  "hash": null,
+  "hash_algorithm": null,
+  "last_modified": "2026-11-18T16:13:52.497321Z",
+  "mimetype": null,
+  "name": "mnf2_files",
+  "path": "mnf2_files",
+  "size": null,
+  "type": "directory",
+  "writable": true
+}
