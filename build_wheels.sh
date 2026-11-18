@@ -19,6 +19,7 @@ rustup install nightly
 rustup default nightly
 rustup target add wasm32-unknown-emscripten
 git clone https://github.com/spinw/pyspinw
+git checkout docswebgl
 cd pyspinw
 git clone https://github.com/m-ou-se/atomic-wait
 cd atomic-wait
